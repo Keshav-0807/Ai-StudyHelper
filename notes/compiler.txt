@@ -1,0 +1,96 @@
+Phases of a Compiler
+Last Updated : 25 Jan, 2025
+A compiler is a software tool that converts high-level programming code into machine code that a computer can understand and execute. It acts as a bridge between human-readable code and machine-level instructions, enabling efficient program execution. The process of compilation is divided into six phases:
+
+Lexical Analysis: The first phase, where the source code is broken down into tokens such as keywords, operators, and identifiers for easier processing.
+Syntax Analysis or Parsing: This phase checks if the source code follows the correct syntax rules, building a parse tree or abstract syntax tree (AST).
+Semantic Analysis: It ensures the program’s logic makes sense, checking for errors like type mismatches or undeclared variables.
+Intermediate Code Generation: In this phase, the compiler converts the source code into an intermediate, machine-independent representation, simplifying optimization and translation.
+Code Optimization: This phase improves the intermediate code to make it run more efficiently, reducing resource usage or increasing speed.
+Target Code Generation: The final phase where the optimized code is translated into the target machine code or assembly language that can be executed on the computer.
+The whole compilation process is divided into two parts, front-end and back-end. These six phases are divided into two main parts, front-end and back-end with the intermediate code generation phase acting as a link between them. The front end analyzes source code for syntax and semantics, generating intermediate code, while ensuring correctness. The back end optimizes this intermediate code and converts it into efficient machine code for execution. The front end is mostly machine-independent, while the back end is machine-dependent.
+
+The compilation process is an essential part of transforming high-level source code into machine-readable code. A compiler performs this transformation through several phases, each with a specific role in making the code efficient and correct. Broadly, the compilation process can be divided into two main parts:
+
+Analysis Phase: The analysis phase breaks the source program into its basic components and creates an intermediate representation of the program. It is sometimes referred to as front end.
+Synthesis Phase: The synthesis phase creates the final target program from the intermediate representation. It is sometimes referred to as back end.
+
+Phases of a Compiler
+The compiler consists of two main parts: the front-end and the back-end. The front-end includes the lexical analyzer, syntax analyzer, semantic analyzer, and intermediate code generator. The back-end takes over from there, handling optimization, code generation, and assembly.
+
+1. Lexical Analysis
+Lexical analysis is the first phase of a compiler, responsible for converting the raw source code into a sequence of tokens. A token is the smallest unit of meaningful data in a programming language. Lexical analysis involves scanning the source code, recognizing patterns, and categorizing groups of characters into distinct tokens.
+
+The lexical analyzer scans the source code character by character, grouping these characters into meaningful units (tokens) based on the language's syntax rules. These tokens can represent keywords, identifiers, constants, operators, or punctuation marks. By converting the source code into tokens, lexical analysis simplifies the process of understanding and processing the code in later stages of compilation.
+
+2. Syntax Analysis
+Syntax analysis, also known as parsing, is the second phase of a compiler where the structure of the source code is checked. This phase ensures that the code follows the correct grammatical rules of the programming language.
+
+The role of syntax analysis is to verify that the sequence of tokens produced by the lexical analyzer is arranged in a valid way according to the language's syntax. It checks whether the code adheres to the language's rules, such as correct use of operators, keywords, and parentheses. If the source code is not structured correctly, the syntax analyzer will generate errors.
+
+To represent the structure of the source code, syntax analysis uses parse trees or syntax trees.
+
+Parse Tree: A parse tree is a tree-like structure that represents the syntactic structure of the source code. It shows how the tokens relate to each other according to the grammar rules. Each branch in the tree represents a production rule of the language, and the leaves represent the tokens.
+Syntax Tree: A syntax tree is a more abstract version of the parse tree. It represents the hierarchical structure of the source code but with less detail, focusing on the essential syntactic structure. It helps in understanding how different parts of the code relate to each other.
+
+3. Semantic Analysis
+Semantic analysis is the phase of the compiler that ensures the source code makes sense logically. It goes beyond the syntax of the code and checks whether the program has any semantic errors, such as type mismatches or undeclared variables.
+
+Semantic analysis checks the meaning of the program by validating that the operations performed in the code are logically correct. This phase ensures that the source code follows the rules of the programming language in terms of its logic and data usage.
+
+Some key checks performed during semantic analysis include:
+
+Type Checking: The compiler ensures that operations are performed on compatible data types. For example, trying to add a string and an integer would be flagged as an error because they are incompatible types.
+Variable Declaration: It checks whether variables are declared before they are used. For example, using a variable that has not been defined earlier in the code would result in a semantic error.
+
+4. Intermediate Code Generation
+Intermediate code is a form of code that lies between the high-level source code and the final machine code. It is not specific to any particular machine, making it portable and easier to optimize. Intermediate code acts as a bridge, simplifying the process of converting source code into executable code.
+
+The use of intermediate code plays a crucial role in optimizing the program before it is turned into machine code.
+
+Platform Independence: Since the intermediate code is not tied to any specific hardware, it can be easily optimized for different platforms without needing to recompile the entire source code. This makes the process more efficient for cross-platform development.
+Simplifying Optimization: Intermediate code simplifies the optimization process by providing a clearer, more structured view of the program. This makes it easier to apply optimization techniques such as:
+Dead Code Elimination: Removing parts of the code that don’t affect the program’s output.
+Loop Optimization: Improving loops to make them run faster or consume less memory.
+Common Subexpression Elimination: Reusing previously calculated values to avoid redundant calculations.
+Easier Translation: Intermediate code is often closer to machine code, but not specific to any one machine, making it easier to convert into the target machine code. This step is typically handled in the back end of the compiler, allowing for smoother and more efficient code generation.
+
+5. Code Optimization
+Code Optimization is the process of improving the intermediate or target code to make the program run faster, use less memory, or be more efficient, without altering its functionality. It involves techniques like removing unnecessary computations, reducing redundancy, and reorganizing code to achieve better performance. Optimization is classified broadly into two types:
+
+Machine-Independent
+Machine-Dependent
+Common Techniques:
+
+Constant Folding: Precomputing constant expressions.
+Dead Code Elimination: Removing unreachable or unused code.
+Loop Optimization: Improving loop performance through invariant code motion or unrolling.
+Strength Reduction: Replacing expensive operations with simpler ones.
+
+6. Code Generation
+Code Generation is the final phase of a compiler, where the intermediate representation of the source program (e.g., three-address code or abstract syntax tree) is translated into machine code or assembly code. This machine code is specific to the target platform and can be executed directly by the hardware.
+
+The code generated by the compiler is an object code of some lower-level programming language, for example, assembly language. The source code written in a higher-level language is transformed into a lower-level language that results in a lower-level object code, which should have the following minimum properties:
+
+It should carry the exact meaning of the source code.
+It should be efficient in terms of CPU usage and memory management.
+
+Symbol Table - It is a data structure being used and maintained by the compiler, consisting of all the identifier's names along with their types. It helps the compiler to function smoothly by finding the identifiers quickly.
+
+To know more about Symbol Table refer to this article - Symbol Table.
+
+Error Handling in Phases of Compiler
+Error Handling refers to the mechanism in each phase of the compiler to detect, report and recover from errors without terminating the entire compilation process.
+
+Lexical Analysis: Detects errors in the character stream and ensures valid token formation.
+Example: Identifies illegal characters or invalid tokens (e.g., @var as an identifier).
+Syntax Analysis: Checks for structural or grammatical errors based on the language's grammar.
+Example: Detects missing semicolons or unmatched parentheses.
+Semantic Analysis: Verifies the meaning of the code and ensures it follows language semantics.
+Example: Reports undeclared variables or type mismatches (e.g., adding a string to an integer).
+Intermediate Code Generation: Ensures the correctness of intermediate representations used in further stages.
+Example: Detects invalid operations, such as dividing by zero.
+Code Optimization: Ensures that the optimization process doesn’t produce errors or alter code functionality.
+Example: Identifies issues with unreachable or redundant code.
+Code Generation: Handles errors in generating machine code or allocating resources.
+Example: Reports insufficient registers or invalid machine instructions.

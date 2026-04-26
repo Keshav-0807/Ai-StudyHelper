@@ -1,0 +1,10 @@
+C++ is a programming language known for its fast speed, low level memory management and is often taught as first programming language.
+
+Why Learn C++?
+C++ is often taught as a foundational language to aspiring programmers, but it is much more than that:
+
+C++ is used in making operating systems, embedded systems, graphical user interfaces and nowadays in High Frequency Trading (HFT) systems.
+It supports both low-level and high-level features such as manual memory management and OOPs programming respectively.
+Syntax similarity with C, Java, and C# makes it easier to switch languages.
+C++ provides one of the fastest execution speeds among high level languages, which can be a decidi
+ng factor in Competitive Programming or high-performance applications.
