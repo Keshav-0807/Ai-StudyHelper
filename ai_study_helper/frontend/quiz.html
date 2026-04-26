@@ -77,6 +77,9 @@
                 ← Previous
             </button>
             <div class="flex-grow"></div>
+            <button id="clearBtn" class="mr-4 px-4 py-2 border border-red-200 text-red-600 rounded-lg font-medium hover:bg-red-50 transition-colors hidden">
+                Clear Response
+            </button>
             <button id="nextBtn" class="px-6 py-2 bg-purple-100 text-purple-700 rounded-lg font-medium hover:bg-purple-200 transition-colors">
                 Next →
             </button>
@@ -257,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const submitBtn = document.getElementById('submitBtn');
+    const clearBtn = document.getElementById('clearBtn');
     const progText = document.getElementById('quizProgressText');
     const progBar = document.getElementById('progressBar');
 
@@ -297,6 +301,12 @@ document.addEventListener('DOMContentLoaded', () => {
             nextBtn.classList.remove('hidden');
             submitBtn.classList.add('hidden');
         }
+
+        if (userAnswers[index]) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
     }
 
     prevBtn.addEventListener('click', () => {
@@ -305,6 +315,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextBtn.addEventListener('click', () => {
         if (currentIndex < questions.length - 1) renderQuestion(++currentIndex);
+    });
+
+    clearBtn.addEventListener('click', () => {
+        userAnswers[currentIndex] = null;
+        renderQuestion(currentIndex);
     });
 
     // Submit Modal Logic
